@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SparePartMaintenanceDTO {
-    private int maintenanceId;
-    private int sparePartId;
-    private int quantity;
+public class UserDto {
+    private String username;
+    private String email;
+    private String password;
 }

@@ -9,7 +9,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MachineDTO {
+public class MachineDto {
     private String name;
     private String type;
     private Date acquisitionDate;

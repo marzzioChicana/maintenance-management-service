@@ -1,6 +1,6 @@
 package com.marzz.maintenance_management_service.controller;
 
-import com.marzz.maintenance_management_service.dto.UserDTO;
+import com.marzz.maintenance_management_service.dto.UserDto;
 import com.marzz.maintenance_management_service.exception.ResourceNotFoundException;
 import com.marzz.maintenance_management_service.exception.ValidationException;
 import com.marzz.maintenance_management_service.model.User;
@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 @CrossOrigin(origins = "*" , maxAge = 3600)
@@ -26,11 +27,16 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<User> createUser(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<User> createUser(@RequestBody UserDto userDTO) {
         validateUser(userDTO);
-        existsUserByName(userDTO.getName());
+        existsUserByUsername(userDTO.getUsername());
         existsUserByEmail(userDTO.getEmail());
         return new ResponseEntity<>(userService.createUser(userDTO), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/users")
+    public ResponseEntity<List<User>> getAllUsers() {
+        return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
     }
 
     @DeleteMapping("/users/{id}")
@@ -44,7 +50,7 @@ public class UserController {
         }
     }
 
-    private void validateUser(UserDTO userDTO) {
+    private void validateUser(UserDto userDTO) {
         String emailRegex = "^[A-Za-z0-9+_.-]+@(hotmail|gmail)\\.com$";
         Pattern pattern = Pattern.compile(emailRegex);
 
@@ -54,8 +60,8 @@ public class UserController {
             throw new ValidationException("Email must be mandatory");
         }
 
-        if(userDTO.getName() == null || userDTO.getName().trim().isEmpty()){
-            throw new ValidationException("Name must be mandatory");
+        if(userDTO.getUsername() == null || userDTO.getUsername().trim().isEmpty()){
+            throw new ValidationException("Username must be mandatory");
         }
 
         if(userDTO.getPassword() == null || userDTO.getPassword().trim().isEmpty()){
@@ -63,8 +69,8 @@ public class UserController {
         }
     }
 
-    private void existsUserByName(String name) {
-        if (userService.getUserByName(name) != null) {
+    private void existsUserByUsername(String username) {
+        if (userService.getUserByUsername(username) != null) {
             throw new ValidationException("Username already exists");
         }
     }

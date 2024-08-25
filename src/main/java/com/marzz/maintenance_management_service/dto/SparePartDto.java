@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SparePartDTO {
+public class SparePartDto {
     private String name;
     private String code;
     private int quantity;

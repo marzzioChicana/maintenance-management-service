@@ -1,6 +1,6 @@
 package com.marzz.maintenance_management_service.service.impl;
 
-import com.marzz.maintenance_management_service.dto.UserDTO;
+import com.marzz.maintenance_management_service.dto.UserDto;
 import com.marzz.maintenance_management_service.exception.ResourceNotFoundException;
 import com.marzz.maintenance_management_service.model.User;
 import com.marzz.maintenance_management_service.repository.UserRepository;
@@ -24,13 +24,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User createUser(UserDTO userDTO) {
+    public User createUser(UserDto userDTO) {
         User user = DtoToEntity(userDTO);
         return userRepository.save(user);
     }
 
     @Override
-    public void updateUser(UserDTO userDTO) {
+    public void updateUser(UserDto userDTO) {
         User user = DtoToEntity(userDTO);
         userRepository.save(user);
     }
@@ -47,8 +47,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserByName(String name) {
-        return userRepository.findByName(name);
+    public User getUserByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 
     @Override
@@ -61,9 +61,9 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
 
-    private UserDTO EntityToDto(User user) { return modelMapper.map(user, UserDTO.class); }
+    private UserDto EntityToDto(User user) { return modelMapper.map(user, UserDto.class); }
 
-    private User DtoToEntity(UserDTO userDTO) {
+    private User DtoToEntity(UserDto userDTO) {
         return modelMapper.map(userDTO, User.class);
     }
 }

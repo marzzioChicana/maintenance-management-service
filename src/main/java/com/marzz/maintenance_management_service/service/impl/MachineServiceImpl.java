@@ -1,6 +1,6 @@
 package com.marzz.maintenance_management_service.service.impl;
 
-import com.marzz.maintenance_management_service.dto.MachineDTO;
+import com.marzz.maintenance_management_service.dto.MachineDto;
 import com.marzz.maintenance_management_service.exception.ResourceNotFoundException;
 import com.marzz.maintenance_management_service.model.Machine;
 import com.marzz.maintenance_management_service.model.User;
@@ -28,7 +28,7 @@ public class MachineServiceImpl implements MachineService {
     }
 
     @Override
-    public Machine createMachine(MachineDTO machineDTO) {
+    public Machine createMachine(MachineDto machineDTO) {
         Machine machine = DtoToEntity(machineDTO);
         User user = userRepository.findById(machineDTO.getUserId())
                 .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + machineDTO.getUserId()));
@@ -38,7 +38,7 @@ public class MachineServiceImpl implements MachineService {
     }
 
     @Override
-    public void updateMachine(MachineDTO machineDTO) {
+    public void updateMachine(MachineDto machineDTO) {
         Machine machine = DtoToEntity(machineDTO);
         User user = userRepository.findById(machineDTO.getUserId())
                 .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + machineDTO.getUserId()));
@@ -63,9 +63,9 @@ public class MachineServiceImpl implements MachineService {
         return machineRepository.findAll();
     }
 
-    private MachineDTO EntityToDto(Machine machine) { return modelMapper.map(machine, MachineDTO.class); }
+    private MachineDto EntityToDto(Machine machine) { return modelMapper.map(machine, MachineDto.class); }
 
-    private Machine DtoToEntity(MachineDTO machineDTO) {
+    private Machine DtoToEntity(MachineDto machineDTO) {
         return modelMapper.map(machineDTO, Machine.class);
     }
 }

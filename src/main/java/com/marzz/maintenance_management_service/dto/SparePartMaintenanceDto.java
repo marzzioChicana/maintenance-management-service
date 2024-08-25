@@ -4,14 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MaintenanceDTO {
-    private Date date;
-    private Long cost;
-    private String description;
-    private int machineId;
+public class SparePartMaintenanceDto {
+    private int maintenanceId;
+    private int sparePartId;
+    private int quantity;
 }
