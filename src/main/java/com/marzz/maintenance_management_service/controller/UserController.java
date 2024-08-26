@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.regex.Pattern;
 
-@CrossOrigin(origins = "*" , maxAge = 3600)
+@CrossOrigin(origins = "**" , maxAge = 3600)
 @RestController
-@RequestMapping("/api/maintenance/service/v1")
+@RequestMapping("/api/maintenance/service/v1/users")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -26,7 +26,7 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
-    @PostMapping("/users")
+    @PostMapping
     public ResponseEntity<User> createUser(@RequestBody UserDto userDTO) {
         validateUser(userDTO);
         existsUserByUsername(userDTO.getUsername());
@@ -34,12 +34,12 @@ public class UserController {
         return new ResponseEntity<>(userService.createUser(userDTO), HttpStatus.CREATED);
     }
 
-    @GetMapping("/users")
+    @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
         return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
     }
 
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteUser(@PathVariable int id) {
         boolean isExist = userRepository.existsById(id);
         if (isExist) {
