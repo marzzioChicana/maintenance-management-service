@@ -16,5 +16,6 @@ public class MachineDto {
     private String status;
     private Date lastMaintenance;
     private int usefulLife;
+    private String photo;
     private int userId;
 }

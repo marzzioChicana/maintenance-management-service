@@ -28,6 +28,8 @@ public class Machine {
 
     private int usefulLife;
 
+    private String photo;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
