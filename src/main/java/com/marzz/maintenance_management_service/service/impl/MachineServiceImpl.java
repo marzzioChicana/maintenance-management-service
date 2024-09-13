@@ -43,7 +43,18 @@ public class MachineServiceImpl implements MachineService {
         User user = userRepository.findById(machineDTO.getUserId())
                 .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + machineDTO.getUserId()));
 
-        machine.setUser(user);
+        Machine machineToUpdate = machineRepository.findById(machine.getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Machine not found for this id :: " + machine.getId()));
+
+        machineToUpdate.setName(machine.getName());
+        machineToUpdate.setType(machine.getType());
+        machineToUpdate.setAcquisitionDate(machine.getAcquisitionDate());
+        machineToUpdate.setStatus(machine.getStatus());
+        machineToUpdate.setLastMaintenance(machine.getLastMaintenance());
+        machineToUpdate.setUsefulLife(machine.getUsefulLife());
+        machineToUpdate.setPhoto(machine.getPhoto());
+        machineToUpdate.setUser(user);
+
         machineRepository.save(machine);
     }
 
