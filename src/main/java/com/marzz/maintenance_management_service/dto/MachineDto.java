@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -12,10 +12,10 @@ import java.util.Date;
 public class MachineDto {
     private String name;
     private String type;
-    private Date acquisitionDate;
+    private LocalDate acquisitionDate;
     private String status;
-    private Date lastMaintenance;
-    private int usefulLife;
+    private LocalDate lastMaintenance;
+    private Integer usefulLife;
     private String photo;
-    private int userId;
+    private Integer userId;
 }

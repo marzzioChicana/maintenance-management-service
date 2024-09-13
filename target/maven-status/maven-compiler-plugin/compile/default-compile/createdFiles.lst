@@ -23,6 +23,7 @@ com\marzz\maintenance_management_service\dto\SparePartDto.class
 com\marzz\maintenance_management_service\dto\MaintenanceDto.class
 com\marzz\maintenance_management_service\repository\MaintenanceRepository.class
 com\marzz\maintenance_management_service\config\ModelMapperConfig.class
+com\marzz\maintenance_management_service\controller\MachineController.class
 com\marzz\maintenance_management_service\service\impl\UserServiceImpl.class
 com\marzz\maintenance_management_service\config\strategy\SnakeCasePhysicalNamingStrategy.class
 com\marzz\maintenance_management_service\service\impl\UserDetailsServiceImpl.class

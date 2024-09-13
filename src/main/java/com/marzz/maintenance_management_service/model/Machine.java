@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -20,13 +20,13 @@ public class Machine {
 
     private String type;
 
-    private Date acquisitionDate;
+    private LocalDate acquisitionDate;
 
     private String status;
 
-    private Date lastMaintenance;
+    private LocalDate lastMaintenance;
 
-    private int usefulLife;
+    private Integer usefulLife;
 
     private String photo;
 

@@ -2,6 +2,7 @@ package com.marzz.maintenance_management_service.controller;
 
 import com.marzz.maintenance_management_service.dto.AuthRequestDto;
 import com.marzz.maintenance_management_service.dto.AuthResponseDto;
+import com.marzz.maintenance_management_service.dto.UserDto;
 import com.marzz.maintenance_management_service.model.User;
 import com.marzz.maintenance_management_service.service.JwtUtilService;
 import com.marzz.maintenance_management_service.service.UserService;
@@ -31,6 +32,9 @@ public class AuthController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserController userController;
+
     @PostMapping("/sign-in")
     public ResponseEntity<?> auth(@RequestBody AuthRequestDto authRequestDto) {
 
@@ -59,5 +63,10 @@ public class AuthController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Error Authentication:::" + e.getMessage());
         }
+    }
+
+    @PostMapping("/sign-up")
+    public ResponseEntity<User> createUser(@RequestBody UserDto userDto) {
+        return this.userController.createUser(userDto);
     }
 }
