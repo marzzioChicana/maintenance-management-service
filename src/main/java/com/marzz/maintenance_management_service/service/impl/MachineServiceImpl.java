@@ -1,6 +1,7 @@
 package com.marzz.maintenance_management_service.service.impl;
 
 import com.marzz.maintenance_management_service.dto.MachineDto;
+import com.marzz.maintenance_management_service.dto.MachineUpdateDto;
 import com.marzz.maintenance_management_service.exception.ResourceNotFoundException;
 import com.marzz.maintenance_management_service.model.Machine;
 import com.marzz.maintenance_management_service.model.User;
@@ -28,20 +29,20 @@ public class MachineServiceImpl implements MachineService {
     }
 
     @Override
-    public Machine createMachine(MachineDto machineDTO) {
-        Machine machine = DtoToEntity(machineDTO);
-        User user = userRepository.findById(machineDTO.getUserId())
-                .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + machineDTO.getUserId()));
+    public Machine createMachine(MachineDto machineDto) {
+        Machine machine = DtoToEntity(machineDto);
+        User user = userRepository.findById(machineDto.getUserId())
+                .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + machineDto.getUserId()));
 
         machine.setUser(user);
         return machineRepository.save(machine);
     }
 
     @Override
-    public void updateMachine(MachineDto machineDTO) {
-        Machine machine = DtoToEntity(machineDTO);
-        User user = userRepository.findById(machineDTO.getUserId())
-                .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + machineDTO.getUserId()));
+    public void updateMachine(MachineUpdateDto machineUpdateDto) {
+        Machine machine = UpdateDtoToEntity(machineUpdateDto);
+        User user = userRepository.findById(machineUpdateDto.getUserId())
+                .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + machineUpdateDto.getUserId()));
 
         Machine machineToUpdate = machineRepository.findById(machine.getId())
                 .orElseThrow(() -> new ResourceNotFoundException("Machine not found for this id :: " + machine.getId()));
@@ -81,9 +82,16 @@ public class MachineServiceImpl implements MachineService {
         return machineRepository.getMachinesByUser(user);
     }
 
+    @Override
+    public boolean isMachineExist(int id) { return machineRepository.existsById(id); }
+
     private MachineDto EntityToDto(Machine machine) { return modelMapper.map(machine, MachineDto.class); }
 
-    private Machine DtoToEntity(MachineDto machineDTO) {
-        return modelMapper.map(machineDTO, Machine.class);
+    private Machine DtoToEntity(MachineDto machineDto) {
+        return modelMapper.map(machineDto, Machine.class);
+    }
+
+    private Machine UpdateDtoToEntity(MachineUpdateDto machineUpdateDto) {
+        return modelMapper.map(machineUpdateDto, Machine.class);
     }
 }

@@ -1,6 +1,7 @@
 package com.marzz.maintenance_management_service.controller;
 
 import com.marzz.maintenance_management_service.dto.MachineDto;
+import com.marzz.maintenance_management_service.dto.MachineUpdateDto;
 import com.marzz.maintenance_management_service.exception.ValidationException;
 import com.marzz.maintenance_management_service.model.Machine;
 import com.marzz.maintenance_management_service.service.MachineService;
@@ -41,10 +42,10 @@ public class MachineController {
         return new ResponseEntity<>(machineService.createMachine(machineDto), HttpStatus.CREATED);
     }
 
-    @PutMapping
-    public ResponseEntity<Machine> updateMachine(@RequestBody MachineDto machineDto) {
-        validateMachine(machineDto);
-        machineService.updateMachine(machineDto);
+    @PutMapping()
+    public ResponseEntity<Machine> updateMachine(@RequestBody MachineUpdateDto machineUpdateDto) {
+        validateUpdateMachine(machineUpdateDto);
+        machineService.updateMachine(machineUpdateDto);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -80,6 +81,40 @@ public class MachineController {
         }
 
         if(machineDto.getUserId().describeConstable().isEmpty()){
+            throw new ValidationException("User id must be mandatory");
+        }
+    }
+
+    private void validateUpdateMachine(MachineUpdateDto machineUpdateDto) {
+        if(machineUpdateDto.getId().describeConstable().isEmpty()){
+            throw new ValidationException("Id must be mandatory");
+        }
+
+        if(machineUpdateDto.getName() == null || machineUpdateDto.getName().trim().isEmpty()){
+            throw new ValidationException("Name must be mandatory");
+        }
+
+        if(machineUpdateDto.getType() == null || machineUpdateDto.getType().trim().isEmpty()){
+            throw new ValidationException("Type must be mandatory");
+        }
+
+        if(machineUpdateDto.getAcquisitionDate() == null){
+            throw new ValidationException("Acquisition date must be mandatory");
+        }
+
+        if(machineUpdateDto.getStatus() == null || machineUpdateDto.getStatus().trim().isEmpty()){
+            throw new ValidationException("Status must be mandatory");
+        }
+
+        if(machineUpdateDto.getUsefulLife().describeConstable().isEmpty()){
+            throw new ValidationException("Useful life must be mandatory");
+        }
+
+        if(machineUpdateDto.getPhoto() == null || machineUpdateDto.getPhoto().trim().isEmpty()){
+            throw new ValidationException("Photo must be mandatory");
+        }
+
+        if(machineUpdateDto.getUserId().describeConstable().isEmpty()){
             throw new ValidationException("User id must be mandatory");
         }
     }

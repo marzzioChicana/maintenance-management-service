@@ -10,6 +10,7 @@ D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\m
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\dto\AuthRequestDto.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\dto\AuthResponseDto.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\dto\MachineDto.java
+D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\dto\MachineUpdateDto.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\dto\MaintenanceDto.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\dto\SparePartDto.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\dto\SparePartMaintenanceDto.java

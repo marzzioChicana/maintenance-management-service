@@ -13,6 +13,7 @@ com\marzz\maintenance_management_service\controller\AuthController.class
 com\marzz\maintenance_management_service\model\Maintenance.class
 com\marzz\maintenance_management_service\filter\JwtRequestFilter.class
 com\marzz\maintenance_management_service\model\SparePart.class
+com\marzz\maintenance_management_service\dto\MachineUpdateDto.class
 com\marzz\maintenance_management_service\service\SparePartMaintenanceService.class
 com\marzz\maintenance_management_service\dto\SparePartMaintenanceDto.class
 com\marzz\maintenance_management_service\service\SparePartService.class
