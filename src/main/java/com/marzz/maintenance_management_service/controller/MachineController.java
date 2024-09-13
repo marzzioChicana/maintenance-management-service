@@ -66,10 +66,6 @@ public class MachineController {
             throw new ValidationException("Status must be mandatory");
         }
 
-        if(machineDto.getLastMaintenance() == null){
-            throw new ValidationException("Last maintenance must be mandatory");
-        }
-
         if(machineDto.getUsefulLife().describeConstable().isEmpty()){
             throw new ValidationException("Useful life must be mandatory");
         }
