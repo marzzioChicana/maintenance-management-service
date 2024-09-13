@@ -11,4 +11,5 @@ public interface MachineService {
     public abstract void deleteMachine(int id);
     public abstract Machine getMachineById(int id);
     public abstract List<Machine> getMachines();
+    public abstract List<Machine> getMachinesByUserId(int userId);
 }

@@ -30,6 +30,11 @@ public class MachineController {
         return new ResponseEntity<>(machineService.getMachineById(id), HttpStatus.OK);
     }
 
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Machine>> getMachinesByUserId(@PathVariable int userId) {
+        return new ResponseEntity<>(machineService.getMachinesByUserId(userId), HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Machine> createMachine(@RequestBody MachineDto machineDto) {
         validateMachine(machineDto);

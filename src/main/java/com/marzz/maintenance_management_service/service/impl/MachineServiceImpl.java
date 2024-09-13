@@ -63,6 +63,13 @@ public class MachineServiceImpl implements MachineService {
         return machineRepository.findAll();
     }
 
+    @Override
+    public List<Machine> getMachinesByUserId(int userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
+        return machineRepository.getMachinesByUser(user);
+    }
+
     private MachineDto EntityToDto(Machine machine) { return modelMapper.map(machine, MachineDto.class); }
 
     private Machine DtoToEntity(MachineDto machineDTO) {
