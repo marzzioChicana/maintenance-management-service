@@ -6,6 +6,7 @@ D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\m
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\config\WebConfig.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\controller\AuthController.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\controller\MachineController.java
+D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\controller\SparePartController.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\controller\UserController.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\dto\AuthRequestDto.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\dto\AuthResponseDto.java
@@ -32,6 +33,7 @@ D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\m
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\repository\SparePartRepository.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\repository\UserRepository.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\service\impl\MachineServiceImpl.java
+D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\service\impl\SparePartServiceImpl.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\service\impl\UserDetailsServiceImpl.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\service\impl\UserServiceImpl.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\service\JwtUtilService.java

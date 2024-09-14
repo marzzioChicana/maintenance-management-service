@@ -10,9 +10,8 @@ import lombok.NoArgsConstructor;
 public class SparePartDto {
     private String name;
     private String code;
-    private int quantity;
+    private Integer quantity;
     private String supplier;
-    private int usefulLife;
     private Long price;
-    private int userId;
+    private Integer userId;
 }

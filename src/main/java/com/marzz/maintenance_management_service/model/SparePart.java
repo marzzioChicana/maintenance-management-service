@@ -2,8 +2,10 @@ package com.marzz.maintenance_management_service.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,11 +18,9 @@ public class SparePart {
 
     private String code;
 
-    private int quantity;
+    private Integer quantity;
 
     private String supplier;
-
-    private int usefulLife;
 
     private Long price;
 
