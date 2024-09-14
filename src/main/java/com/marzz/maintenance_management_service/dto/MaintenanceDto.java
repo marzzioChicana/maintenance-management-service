@@ -13,5 +13,7 @@ public class MaintenanceDto {
     private Date date;
     private Long cost;
     private String description;
-    private int machineId;
+    private Integer quantity;
+    private Integer machineId;
+    private Integer sparePartId;
 }

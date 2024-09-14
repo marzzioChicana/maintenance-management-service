@@ -2,10 +2,12 @@ package com.marzz.maintenance_management_service.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
+@Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,13 +16,19 @@ public class Maintenance {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private Date date;
+    private LocalDate date;
 
     private Long cost;
 
     private String description;
 
+    private Integer quantity;
+
     @ManyToOne
     @JoinColumn(name = "machine_id")
     private Machine machine;
+
+    @ManyToOne
+    @JoinColumn(name = "spare_part_id")
+    private SparePart sparePart;
 }

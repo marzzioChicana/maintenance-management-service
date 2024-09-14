@@ -6,6 +6,7 @@ D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\m
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\config\WebConfig.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\controller\AuthController.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\controller\MachineController.java
+D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\controller\MaintenanceController.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\controller\SparePartController.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\controller\UserController.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\dto\AuthRequestDto.java
@@ -14,7 +15,6 @@ D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\m
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\dto\MachineUpdateDto.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\dto\MaintenanceDto.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\dto\SparePartDto.java
-D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\dto\SparePartMaintenanceDto.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\dto\UserDto.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\exception\ControllerExceptionHandler.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\exception\ErrorMessage.java
@@ -25,20 +25,18 @@ D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\m
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\model\Machine.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\model\Maintenance.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\model\SparePart.java
-D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\model\SparePartMaintenance.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\model\User.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\repository\MachineRepository.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\repository\MaintenanceRepository.java
-D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\repository\SparePartMaintenanceRepository.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\repository\SparePartRepository.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\repository\UserRepository.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\service\impl\MachineServiceImpl.java
+D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\service\impl\MaintenanceServiceImpl.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\service\impl\SparePartServiceImpl.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\service\impl\UserDetailsServiceImpl.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\service\impl\UserServiceImpl.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\service\JwtUtilService.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\service\MachineService.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\service\MaintenanceService.java
-D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\service\SparePartMaintenanceService.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\service\SparePartService.java
 D:\Estudios\Proyectos X\maintenance_management_service\src\main\java\com\marzz\maintenance_management_service\service\UserService.java

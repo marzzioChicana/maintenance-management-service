@@ -8,6 +8,7 @@ import com.marzz.maintenance_management_service.model.User;
 import com.marzz.maintenance_management_service.repository.MachineRepository;
 import com.marzz.maintenance_management_service.repository.UserRepository;
 import com.marzz.maintenance_management_service.service.MachineService;
+import com.marzz.maintenance_management_service.service.MaintenanceService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,9 @@ public class MachineServiceImpl implements MachineService {
     private final MachineRepository machineRepository;
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;
+
+    @Autowired
+    private MaintenanceService maintenanceService;
 
     @Autowired
     public MachineServiceImpl(MachineRepository machineRepository, UserRepository userRepository, ModelMapper modelMapper) {
@@ -61,6 +65,11 @@ public class MachineServiceImpl implements MachineService {
 
     @Override
     public void deleteMachine(int id) {
+        machineRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Machine not found for this id :: " + id));
+
+        maintenanceService.deleteMaintenancesByMachineId(id);
+
         machineRepository.deleteById(id);
     }
 

@@ -5,6 +5,7 @@ import com.marzz.maintenance_management_service.dto.MachineUpdateDto;
 import com.marzz.maintenance_management_service.exception.ValidationException;
 import com.marzz.maintenance_management_service.model.Machine;
 import com.marzz.maintenance_management_service.service.MachineService;
+import com.marzz.maintenance_management_service.service.MaintenanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
