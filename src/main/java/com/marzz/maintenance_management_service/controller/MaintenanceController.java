@@ -38,10 +38,6 @@ public class MaintenanceController {
     }
 
     private void validateMaintenance(MaintenanceDto maintenanceDto) {
-        if (maintenanceDto.getDate() == null) {
-            throw new ValidationException("Start date is required");
-        }
-
         if (maintenanceDto.getCost() == null) {
             throw new ValidationException("Cost is required");
         }

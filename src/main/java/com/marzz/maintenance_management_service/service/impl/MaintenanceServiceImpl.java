@@ -15,6 +15,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 
@@ -48,6 +49,7 @@ public class MaintenanceServiceImpl implements MaintenanceService {
 
         maintenance.setMachine(machine);
         maintenance.setSparePart(sparePart);
+        maintenance.setDate(LocalDate.now());
         return maintenanceRepository.save(maintenance);
     }
 
