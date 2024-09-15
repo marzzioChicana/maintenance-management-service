@@ -1,14 +1,18 @@
 package com.marzz.maintenance_management_service.controller;
 
+import com.marzz.maintenance_management_service.dto.MachineUpdateDto;
 import com.marzz.maintenance_management_service.dto.MaintenanceDto;
 import com.marzz.maintenance_management_service.exception.ValidationException;
 import com.marzz.maintenance_management_service.model.Maintenance;
+import com.marzz.maintenance_management_service.service.MachineService;
 import com.marzz.maintenance_management_service.service.MaintenanceService;
+import com.marzz.maintenance_management_service.service.SparePartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @CrossOrigin(origins = "**" , maxAge = 3600)
@@ -28,6 +32,7 @@ public class MaintenanceController {
     @PostMapping
     public ResponseEntity<Maintenance> createMaintenance(@RequestBody MaintenanceDto maintenanceDto) {
         validateMaintenance(maintenanceDto);
+
         return new ResponseEntity<>(maintenanceService.createMaintenance(maintenanceDto), HttpStatus.CREATED);
     }
 

@@ -10,9 +10,12 @@ import com.marzz.maintenance_management_service.repository.MachineRepository;
 import com.marzz.maintenance_management_service.repository.MaintenanceRepository;
 import com.marzz.maintenance_management_service.repository.SparePartRepository;
 import com.marzz.maintenance_management_service.repository.UserRepository;
+import com.marzz.maintenance_management_service.service.MachineService;
 import com.marzz.maintenance_management_service.service.MaintenanceService;
+import com.marzz.maintenance_management_service.service.SparePartService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -39,7 +42,12 @@ public class MaintenanceServiceImpl implements MaintenanceService {
 
     @Override
     public Maintenance createMaintenance(MaintenanceDto maintenanceDto) {
+        System.out.println(maintenanceDto);
         Maintenance maintenance = DtoToEntity(maintenanceDto);
+
+        maintenance.setId(0);
+
+        System.out.println(maintenance);
 
         Machine machine = machineRepository.findById(maintenanceDto.getMachineId())
                 .orElseThrow(() -> new ResourceNotFoundException("Machine not found for this id :: " + maintenanceDto.getMachineId()));
@@ -56,6 +64,7 @@ public class MaintenanceServiceImpl implements MaintenanceService {
         maintenance.setMachine(machine);
         maintenance.setSparePart(sparePart);
         maintenance.setDate(LocalDate.now());
+        System.out.println(maintenance);
         return maintenanceRepository.save(maintenance);
     }
 
