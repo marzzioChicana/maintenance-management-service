@@ -47,6 +47,12 @@ public class MaintenanceServiceImpl implements MaintenanceService {
         SparePart sparePart = sparePartRepository.findById(maintenanceDto.getSparePartId())
                 .orElseThrow(() -> new ResourceNotFoundException("SparePart not found for this id :: " + maintenanceDto.getSparePartId()));
 
+        machine.setLastMaintenance(LocalDate.now());
+        machineRepository.save(machine);
+
+        sparePart.setQuantity(sparePart.getQuantity() - maintenanceDto.getQuantity());
+        sparePartRepository.save(sparePart);
+
         maintenance.setMachine(machine);
         maintenance.setSparePart(sparePart);
         maintenance.setDate(LocalDate.now());
